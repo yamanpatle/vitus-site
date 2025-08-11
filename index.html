@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VITUS Oils Solutions</title>
+<link rel="icon" type="image/png" href="images/vitusonly.png">
+<style>
+    body { font-family: Arial, sans-serif; margin:0; background: #f9f9f9; color:#333; }
+    header {
+        background:#0b3d91;
+        color:#fff;
+        padding: 18px 0;
+        text-align: left;
+        position:relative;
+        min-height: 90px;
+        width: 70vw;
+        margin: 0 auto;
+        border-radius: 0 0 18px 18px;
+        box-shadow: 0 2px 12px rgba(13,40,100,0.07);
+        display: block;
+    }
+    .header-logo {
+        height: 60px;
+        width: 60px;
+        border-radius: 10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.07);
+        margin-left: 10px;
+        margin-top: 2px;
+        background: #fff;
+        object-fit: contain;
+        float: left;
+    }
+    .header-title {
+        font-size: 1.7rem;
+        font-weight: bold;
+        margin: 0 0 0 80px;
+        color: #fff;
+        letter-spacing: 1px;
+        line-height: 1.1;
+        padding-top: 10px;
+    }
+    .header-tagline {
+        font-size: 1.1rem;
+        color: #e3e9f6;
+        font-weight: 500;
+        float: right;
+        margin-top: 18px;
+        margin-right: 24px;
+        white-space: nowrap;
+    }
+    .contact-icon {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: #fff;
+        color: #0b3d91;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: background 0.2s;
+        z-index: 200;
+    }
+    .contact-icon:hover { background: #e3e9f6; }
+    .contact-popup {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        background: #fff;
+        color: #062c6f;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        padding: 18px 22px;
+        min-width: 240px;
+        z-index: 201;
+        font-size: 1rem;
+        text-align: left;
+    }
+    .contact-popup strong { color: #0b3d91; }
+    .contact-popup a {
+        color: #1d6ae5;
+        text-decoration: underline;
+        word-break: break-all;
+    }
+    .contact-popup .close-btn {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: none;
+        border: none;
+        color: #888;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+    nav {
+        background:#062c6f;
+        display:flex;
+        justify-content:center;
+        width: 70vw;
+        margin: 0 auto;
+        border-radius: 0 0 12px 12px;
+    }
+    nav a { color:#fff; padding:14px 20px; text-decoration:none; font-weight:bold; }
+    nav a:hover { background:#0b3d91; }
+    section { padding:40px; max-width:1100px; margin:auto; }
+    .hero {
+        text-align:center;
+        padding:36px 20px;
+        background:linear-gradient(135deg, #0b3d91, #1d6ae5);
+        color:#fff;
+        width:70vw;
+        margin: 24px auto 0 auto;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(13,40,100,0.07);
+    }
+    /* Product Catalogue Tag Grouping */
+    .catalogue-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 22px;
+        justify-content: flex-start;
+    }
+    .catalogue-tag {
+        display: flex;
+        align-items: center;
+        background: #e3e9f6;
+        color: #0b3d91;
+        border-radius: 18px;
+        padding: 7px 18px 7px 12px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: background 0.2s, border 0.2s, color 0.2s;
+        user-select: none;
+    }
+    .catalogue-tag .tag-icon {
+        margin-right: 8px;
+        font-size: 1.2em;
+    }
+    .catalogue-tag.active {
+        background: #1d6ae5;
+        color: #fff;
+        border-color: #0b3d91;
+    }
+    /* Product grid and highlight */
+    .catalogue-grid {
+        display:grid;
+        grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+        gap:20px;
+        margin-top: 18px;
+    }
+    .product-card {
+        background:#fff;
+        border-radius:10px;
+        box-shadow:0 4px 6px rgba(0,0,0,0.1);
+        padding:20px;
+        text-align:center;
+        border: 3px solid transparent;
+        transition: border 0.2s, box-shadow 0.2s;
+    }
+    .product-card.highlight {
+        border: 3px solid #1d6ae5;
+        background: #f0f6ff;
+        box-shadow: 0 6px 16px rgba(29,106,229,0.13);
+    }
+    .product-card img { max-width:100%; height:auto; border-radius:5px; }
+    .footer {
+        background: #062c6f;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        z-index: 100;
+        box-sizing: border-box;
+        font-size: 1rem;
+        border-top: 1px solid #1d6ae5;
+    }
+    @media (max-width: 900px) {
+        header, nav, .hero { width: 97vw; }
+    }
+    @media (max-width: 600px) {
+        .footer { font-size: 0.9rem; padding: 14px 5px; }
+        section { padding: 20px 4px; }
+        header, nav, .hero { width: 100vw; min-width: 0; border-radius: 0; }
+        .header-title { font-size: 1.1rem; margin-left: 60px; }
+        .header-logo { height: 38px; width: 38px; margin-left: 6px; }
+        .header-tagline { font-size: 0.95rem; margin-right: 8px; margin-top: 12px; }
+        .hero { padding: 18px 4px; font-size: 1rem; }
+        .catalogue-tag { font-size: 0.95rem; padding: 6px 10px 6px 8px; }
+    }
+</style>
+<script>
+    // Oil type icons mapping and tag colors
+    const oilTypeIcons = {
+        "Hydraulic Oil": "🛢️",
+        "Engine Oil": "🚗",
+        "Gear Oil": "⚙️",
+        "Compressor Oil": "💨",
+        "Turbine Oil": "🔄",
+        "Transformer Oil": "🔌",
+        "Grease": "🧴",
+        "Coolant": "❄️",
+        "Cutting Oil": "✂️",
+        "Heat Transfer Oil": "🔥",
+        "Spindle Oil": "🌀",
+        "Way Oil": "🛤️",
+        "General": "🧪",
+        "Other": "🔷"
+    };
+    const oilTypeColors = {
+        "Hydraulic Oil": "#1d6ae5",
+        "Engine Oil": "#e67e22",
+        "Gear Oil": "#16a085",
+        "Compressor Oil": "#8e44ad",
+        "Turbine Oil": "#f39c12",
+        "Transformer Oil": "#2d98da",
+        "Grease": "#e84393",
+        "Coolant": "#00b894",
+        "Cutting Oil": "#636e72",
+        "Heat Transfer Oil": "#d35400",
+        "Spindle Oil": "#00cec9",
+        "Way Oil": "#6c5ce7",
+        "General": "#636e72",
+        "Other": "#636e72"
+    };
+
+    function getOilIcon(type) {
+        return oilTypeIcons[type] || oilTypeIcons["Other"];
+    }
+    function getOilColor(type) {
+        return oilTypeColors[type] || oilTypeColors["Other"];
+    }
+
+    function showTab(tabId) {
+        document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+        document.getElementById(tabId).style.display = 'block';
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+        showTab('home');
+        loadProducts();
+    });
+
+    // Contact popup logic
+    function toggleContactPopup() {
+        const popup = document.getElementById('contactPopup');
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+    function closeContactPopup(e) {
+        e.stopPropagation();
+        document.getElementById('contactPopup').style.display = 'none';
+    }
+    document.addEventListener('click', function(e) {
+        const popup = document.getElementById('contactPopup');
+        const icon = document.getElementById('contactIcon');
+        if (popup && popup.style.display === 'block' && !popup.contains(e.target) && !icon.contains(e.target)) {
+            popup.style.display = 'none';
+        }
+    });
+
+    // Product catalogue grouping as tags
+    let allProducts = [];
+    let allTypes = [];
+    let activeType = null;
+
+    async function loadProducts() {
+        try {
+            const response = await fetch('data/products.json');
+            const products = await response.json();
+            allProducts = products;
+            // Get unique oil types
+            const typesSet = new Set(products.map(p => p.oil_type || "Other"));
+            allTypes = Array.from(typesSet);
+            renderTags();
+            renderProducts();
+        } catch (err) {
+            console.error("Error loading products:", err);
+        }
+    }
+
+    function renderTags() {
+        const tagBar = document.getElementById("catalogueTags");
+        tagBar.innerHTML = "";
+        // "All" tag
+        const allTag = document.createElement("div");
+        allTag.className = "catalogue-tag" + (activeType === null ? " active" : "");
+        allTag.innerHTML = `<span class="tag-icon">🌐</span>All`;
+        allTag.onclick = () => { activeType = null; renderTags(); renderProducts(); };
+        tagBar.appendChild(allTag);
+        // Oil type tags
+        allTypes.forEach(type => {
+            const tag = document.createElement("div");
+            tag.className = "catalogue-tag" + (activeType === type ? " active" : "");
+            tag.style.background = activeType === type ? getOilColor(type) : "#e3e9f6";
+            tag.style.color = activeType === type ? "#fff" : getOilColor(type);
+            tag.style.borderColor = activeType === type ? getOilColor(type) : "transparent";
+            tag.innerHTML = `<span class="tag-icon">${getOilIcon(type)}</span>${type}`;
+            tag.onclick = () => { activeType = type; renderTags(); renderProducts(); };
+            tagBar.appendChild(tag);
+        });
+    }
+
+    function renderProducts() {
+        const grid = document.getElementById("productGrid");
+        grid.innerHTML = "";
+        let sorted = [...allProducts];
+        if (activeType) {
+            // Bring selected type products to top
+            const match = sorted.filter(p => (p.oil_type || "Other") === activeType);
+            const rest = sorted.filter(p => (p.oil_type || "Other") !== activeType);
+            sorted = [...match, ...rest];
+        }
+        sorted.forEach(p => {
+            const type = p.oil_type || "Other";
+            const highlight = activeType && type === activeType;
+            const card = document.createElement("div");
+            card.className = "product-card" + (highlight ? " highlight" : "");
+            if (highlight) {
+                card.style.borderColor = getOilColor(type);
+                card.style.background = "#f0f6ff";
+            }
+            card.innerHTML = `
+                <img src="${p.image_url || 'images/placeholder.jpg'}" alt="${p.product_name}">
+                <h3>${p.product_name}</h3>
+                <p><strong>Type:</strong> <span style="color:${getOilColor(type)}">${getOilIcon(type)} ${type}</span></p>
+                <p><strong>Grade:</strong> ${p.oil_grade}</p>
+                <p>${p.short_description}</p>
+                <p><strong>Specifications:</strong> ${p.specifications || ''}</p>
+                <p><strong>Use:</strong> ${p.recommended_use || ''}</p>
+                <p><strong>Packaging:</strong> ${p.packaging_options || ''}</p>
+                <p><strong>Price:</strong> ${p.price_range || ''}</p>
+                <p><strong>Status:</strong> ${p.availability_status || ''}</p>
+                <p><em>${p.special_features || ''}</em></p>
+                ${p.safety_data_sheet_url ? `<a href="${p.safety_data_sheet_url}" target="_blank">Safety Data Sheet</a>` : ''}
+            `;
+            grid.appendChild(card);
+        });
+    }
+</script>
+</head>
+<body>
+
+<header>
+    <img src="images/vitusonly.png" alt="VITUS Oils Solutions Logo" class="header-logo">
+    <span class="header-title">VITUS Oils Solutions</span>
+    <span class="header-tagline">Lubricant Sale &amp; Distributorship &nbsp; GENext Advisory</span>
+    <div class="contact-icon" id="contactIcon" title="Contact Us" onclick="toggleContactPopup()" tabindex="0" aria-label="Contact Us">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <rect width="22" height="22" rx="11" fill="none"/>
+            <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h9A2.5 2.5 0 0 1 18 7.5v7A2.5 2.5 0 0 1 15.5 17h-9A2.5 2.5 0 0 1 4 14.5v-7Zm2.2.5 4.3 3.44a1 1 0 0 0 1.2 0l4.3-3.44" stroke="#0b3d91" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="contact-popup" id="contactPopup" role="dialog" aria-modal="true" aria-label="Contact Information">
+        <button class="close-btn" onclick="closeContactPopup(event)" aria-label="Close">&times;</button>
+        <div><strong>Phone:</strong> <a href="tel:8550952303">8550952303</a></div>
+        <div style="margin-top:8px;"><strong>Email:</strong> <a href="mailto:biomassenergies@gmail.com">biomassenergies@gmail.com</a></div>
+        <div style="margin-top:14px;">
+            <a href="mailto:biomassenergies@gmail.com?subject=Enquiry%20from%20VITUS%20Website" style="display:inline-block;background:#1d6ae5;color:#fff;padding:7px 16px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:4px;">Send Email</a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="#" onclick="showTab('home')">Home</a>
+    <a href="#" onclick="showTab('catalogue')">Product Catalogue</a>
+    <a href="#" onclick="showTab('offerings')">Offerings</a>
+    <a href="#" onclick="showTab('about')">About Us</a>
+</nav>
+
+<section id="home" class="hero">
+    <h2>Welcome to VITUS Oils Solutions</h2>
+    <p>Trusted by companies across the globe for premium lubrication solutions.</p>
+</section>
+
+<section id="catalogue" style="display:none;">
+    <h2>Our Product Catalogue</h2>
+    <div class="catalogue-tags" id="catalogueTags"></div>
+    <div class="catalogue-grid" id="productGrid"></div>
+</section>
+
+<section id="offerings" style="display:none;">
+    <h2>Our Offerings</h2>
+    <ul>
+        <li>Over 90 premium oil types across various industrial and automotive needs</li>
+        <li>GENext advisory – Secret formulation for best lubrication performance</li>
+        <li>Custom solutions for new manufacturing plants</li>
+        <li>Technical support & quality assurance</li>
+    </ul>
+</section>
+
+<section id="about" style="display:none;">
+    <h2>Who Are We?</h2>
+    <p>At VITUS we deliver innovative specialty products trusted by companies across the globe. We are the foundation to everyday essential products that help millions of people live and thrive. We are headquartered in Amravati and have numerous production locations in India. We are customer focused and utilize our values of collaboration and entrepreneurship to grow the business. We offer a dynamic, high-performance environment where team members can have real input and impact on our business. If you’re ready to roll up your sleeves, treat the business as if it is your own and add value accordingly, come see why we’re VITUS Proud!</p>
+    <p><strong>Contact:</strong> 8550952303<br>
+       <strong>Email:</strong> biomassenergies@gmail.com
+    </p>
+</section>
+
+<div class="footer">
+    <img src="images/vitusonly.png" alt="VITUS Logo" style="height:28px;vertical-align:middle;margin-right:8px;border-radius:5px;">
+    &copy; 2025 VITUS Oils Solutions | All Rights Reserved
+</div>
+
+</body>
+</html>
