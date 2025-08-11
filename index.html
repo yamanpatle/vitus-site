@@ -10,19 +10,19 @@
     header {
         background:#0b3d91;
         color:#fff;
-        padding: 18px 0;
+        padding: 8px 0;
         text-align: left;
         position:relative;
-        min-height: 90px;
-        width: 70vw;
-        margin: 0 auto;
-        border-radius: 0 0 18px 18px;
+        min-height: 54px;
+        width: 100%;
+        margin: 0;
+        border-radius: 0 0 0px 0px;
         box-shadow: 0 2px 12px rgba(13,40,100,0.07);
         display: block;
     }
     .header-logo {
-        height: 60px;
-        width: 60px;
+        height: 38px;
+        width: 38px;
         border-radius: 10px;
         box-shadow:0 2px 8px rgba(0,0,0,0.07);
         margin-left: 10px;
@@ -32,32 +32,36 @@
         float: left;
     }
     .header-title {
-        font-size: 1.7rem;
+        font-size: 1.2rem;
         font-weight: bold;
-        margin: 0 0 0 80px;
         color: #fff;
         letter-spacing: 1px;
         line-height: 1.1;
-        padding-top: 10px;
+        padding-top: 7px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 14px;
+        margin-right: 0;
     }
     .header-tagline {
-        font-size: 1.1rem;
+        display: inline-block;
+        font-size: 0.92rem;
         color: #e3e9f6;
-        font-weight: 500;
-        float: right;
-        margin-top: 18px;
-        margin-right: 24px;
+        font-weight: 400;
+        margin: 10px 0 0 14px;
+        line-height: 1.1;
         white-space: nowrap;
+        vertical-align: top;
     }
     .contact-icon {
         position: absolute;
-        top: 20px;
+        top: 12px;
         right: 30px;
         background: #fff;
         color: #0b3d91;
         border-radius: 50%;
-        width: 44px;
-        height: 44px;
+        width: 36px;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -70,14 +74,14 @@
     .contact-popup {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 54px;
         right: 30px;
         background: #fff;
         color: #062c6f;
         border-radius: 10px;
         box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        padding: 18px 22px;
-        min-width: 240px;
+        padding: 14px 18px;
+        min-width: 200px;
         z-index: 201;
         font-size: 1rem;
         text-align: left;
@@ -102,21 +106,22 @@
         background:#062c6f;
         display:flex;
         justify-content:center;
-        width: 70vw;
-        margin: 0 auto;
-        border-radius: 0 0 12px 12px;
+        width: 100%;
+        margin: 0;
+        border-radius: 0 0 0px 0px;
     }
-    nav a { color:#fff; padding:14px 20px; text-decoration:none; font-weight:bold; }
+    nav a { color:#fff; padding:10px 16px; text-decoration:none; font-weight:bold; }
     nav a:hover { background:#0b3d91; }
-    section { padding:40px; max-width:1100px; margin:auto; }
+    section { padding:32px; max-width:1100px; margin:auto; }
     .hero {
         text-align:center;
-        padding:36px 20px;
-        background:linear-gradient(135deg, #0b3d91, #1d6ae5);
-        color:#fff;
-        width:70vw;
-        margin: 24px auto 0 auto;
-        border-radius: 18px;
+        padding:28px 12px;
+        /*background:linear-gradient(135deg, #0b3d91, #1d6ae5);
+        */
+        color:#000000;
+        width:90vw;
+        margin: 18px auto 70px auto;
+        border-radius: 8px;
         box-shadow: 0 2px 12px rgba(13,40,100,0.07);
     }
     /* Product Catalogue Tag Grouping */
@@ -176,27 +181,27 @@
         background: #062c6f;
         color: #fff;
         text-align: center;
-        padding: 20px;
+        padding: 14px;
         position: fixed;
         left: 0;
         bottom: 0;
-        width: 100vw;
+        width: 100%;
         z-index: 100;
         box-sizing: border-box;
         font-size: 1rem;
         border-top: 1px solid #1d6ae5;
     }
     @media (max-width: 900px) {
-        header, nav, .hero { width: 97vw; }
+        .hero { width: 97vw; }
     }
     @media (max-width: 600px) {
-        .footer { font-size: 0.9rem; padding: 14px 5px; }
-        section { padding: 20px 4px; }
-        header, nav, .hero { width: 100vw; min-width: 0; border-radius: 0; }
-        .header-title { font-size: 1.1rem; margin-left: 60px; }
-        .header-logo { height: 38px; width: 38px; margin-left: 6px; }
-        .header-tagline { font-size: 0.95rem; margin-right: 8px; margin-top: 12px; }
-        .hero { padding: 18px 4px; font-size: 1rem; }
+        .footer { font-size: 0.9rem; padding: 10px 5px; }
+        section { padding: 16px 2px; }
+        header, nav { width: 100%; min-width: 0; border-radius: 0; }
+        .header-title { font-size: 1rem; margin-left: 48px; }
+        .header-logo { height: 28px; width: 28px; margin-left: 6px; }
+        .header-tagline { font-size: 0.9rem; margin-right: 6px; margin-top: 8px; }
+        .hero { padding: 12px 2px; font-size: 1rem; }
         .catalogue-tag { font-size: 0.95rem; padding: 6px 10px 6px 8px; }
     }
 </style>
@@ -353,7 +358,7 @@
 <header>
     <img src="images/vitusonly.png" alt="VITUS Oils Solutions Logo" class="header-logo">
     <span class="header-title">VITUS Oils Solutions</span>
-    <span class="header-tagline">Lubricant Sale &amp; Distributorship &nbsp; GENext Advisory</span>
+    <span class ="header-tagline">Lubricant Sales &amp; Distributorship</span>
     <div class="contact-icon" id="contactIcon" title="Contact Us" onclick="toggleContactPopup()" tabindex="0" aria-label="Contact Us">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
             <rect width="22" height="22" rx="11" fill="none"/>
@@ -378,8 +383,43 @@
 </nav>
 
 <section id="home" class="hero">
-    <h2>Welcome to VITUS Oils Solutions</h2>
-    <p>Trusted by companies across the globe for premium lubrication solutions.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 32px;">
+        
+        <div>
+            <h2 style="font-size:2rem; margin-bottom:10px;">Welcome to VITUS Oils Solutions</h2>
+            <p>At <strong>VITUS Oils Solutions</strong>, we believe that lubrication is not just about keeping machines running — it’s about unlocking performance, extending life, and creating value.</p>
+            <p>Founded with a vision to bring world-class lubrication technology to industries and individuals across India, VITUS has grown into a trusted partner for businesses in automotive, manufacturing, agriculture, and heavy engineering. Our core strength lies in our ability to combine premium quality products with deep technical expertise.</p>
+        </div>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:32px; margin-top:32px; align-items: flex-start;">
+        <div style="flex:1 1 320px; min-width:260px; max-width:420px;">
+            <img src="images/vitus-products.jpg" alt="VITUS Products" style="width:100%; max-width:400px; border-radius:14px; box-shadow:0 2px 12px rgba(13,40,100,0.09); margin-bottom:18px;">
+        </div>
+        <div style="flex:2 1 400px; min-width:260px; max-width:600px; text-align:left;">
+            <h3 style="color:#1d6ae5; margin-bottom:8px;">Our Journey</h3>
+            <p style="margin-bottom:10px;">
+                From humble beginnings in Amravati, Maharashtra, we have expanded our reach through a network of trusted distributors and technical advisors. Today, VITUS stands as a symbol of innovation, reliability, and customer commitment — delivering solutions that meet the most demanding conditions and performance standards.
+            </p>
+            
+        </div>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:32px; margin-top:32px; align-items: flex-start;">
+        <div style="flex:2 1 400px; min-width:260px; max-width:600px; text-align:left;">
+            <h3 style="color:#1d6ae5; margin-bottom:8px;">Why Choose VITUS</h3>
+            <ul style="margin-bottom:10px; padding-left:18px;">
+                <li><strong>Performance You Can Trust</strong> — Every drop is engineered for optimal viscosity, wear resistance, and long-term stability.</li>
+                <li><strong>Expert Support</strong> — Our team goes beyond selling products; we provide advice, training, and maintenance strategies to help you get the most from your equipment.</li>
+                <li><strong>Sustainability in Action</strong> — We’re committed to reducing environmental impact through eco-friendly formulations and responsible sourcing.</li>
+                <li><strong>Customer-First Approach</strong> — Whether you are a fleet owner, plant manager, workshop, or retailer, you can rely on us for consistent quality and prompt service.</li>
+            </ul>
+            
+        </div>
+        <div style="flex:1 1 320px; min-width:260px; max-width:420px;">
+            <img src="images/engineer.jpg" alt="Expert Support" style="width:100%; max-width:400px; border-radius:14px; box-shadow:0 2px 12px rgba(13,40,100,0.09); margin-bottom:18px;">
+        </div>
+    </div>
 </section>
 
 <section id="catalogue" style="display:none;">
@@ -391,23 +431,75 @@
 <section id="offerings" style="display:none;">
     <h2>Our Offerings</h2>
     <ul>
-        <li>Over 90 premium oil types across various industrial and automotive needs</li>
-        <li>GENext advisory – Secret formulation for best lubrication performance</li>
-        <li>Custom solutions for new manufacturing plants</li>
-        <li>Technical support & quality assurance</li>
+        <li>
+            <p><strong>Premium Lubricant Range</strong> — Over 90 high-performance products for:</p>
+            <ul>
+                <li><strong>Engine Oils</strong> — Petrol, diesel, and gas engines for optimal protection & long drain intervals.</li>
+                <li><strong>Hydraulic Oils</strong> — Smooth operation with superior wear protection.</li>
+                <li><strong>Gear & Transmission Oils</strong> — Friction reduction and extreme pressure resistance.</li>
+                <li><strong>Greases & Specialty Lubricants</strong> — High-temp, water-resistant, and application-specific solutions.</li>
+            </ul>
+        </li>
+
+        <li>
+            <p><strong>GENext Advisory Program</strong> — Expert consultancy for new manufacturing plants:</p>
+            <ul>
+                <li>Custom lubrication strategies for maximum uptime.</li>
+                <li>Product selection aligned with OEM specs & conditions.</li>
+                <li>On-site support during start-up & preventive maintenance planning.</li>
+                <li>Exclusive additive technology for unmatched performance.</li>
+            </ul>
+        </li>
+
+        <li>
+            <p><strong>Technical Support & Training</strong> — Knowledge and assistance beyond products:</p>
+            <ul>
+                <li>Hands-on training for maintenance & operations teams.</li>
+                <li>Lubrication troubleshooting and root-cause analysis.</li>
+                <li>Oil sampling, condition monitoring, and predictive maintenance guidance.</li>
+            </ul>
+        </li>
+
+        <li>
+            <p><strong>Sustainability-Driven Solutions</strong> — Reducing environmental impact:</p>
+            <ul>
+                <li>Low-emission, biodegradable lubricant options.</li>
+                <li>Formulations that reduce energy consumption & wear.</li>
+                <li>Support for recycling & safe disposal of used oils.</li>
+            </ul>
+        </li>
+
+        <li>
+            <p><strong>Bulk Supply & Logistics</strong> — Reliable supply chain solutions:</p>
+            <ul>
+                <li>Bulk packaging: 20L, 200L drums, and IBC containers.</li>
+                <li>Just-in-time delivery to prevent downtime.</li>
+                <li>Flexible supply contracts for seasonal demands.</li>
+            </ul>
+        </li>
     </ul>
 </section>
+
 
 <section id="about" style="display:none;">
     <h2>Who Are We?</h2>
     <p>At VITUS we deliver innovative specialty products trusted by companies across the globe. We are the foundation to everyday essential products that help millions of people live and thrive. We are headquartered in Amravati and have numerous production locations in India. We are customer focused and utilize our values of collaboration and entrepreneurship to grow the business. We offer a dynamic, high-performance environment where team members can have real input and impact on our business. If you’re ready to roll up your sleeves, treat the business as if it is your own and add value accordingly, come see why we’re VITUS Proud!</p>
+    <h2>Our Mission</h2>
+    <p>To deliver high-performance lubrication solutions that empower our customers to achieve maximum efficiency, reduce downtime, and extend the life of their machinery — while upholding the highest standards of quality, innovation, and environmental responsibility.</p>
+    <h2>Our Vision</h2>
+    <p>To become the most trusted and innovative lubrication partner in India and beyond, recognized for technical expertise, unmatched product quality, and a relentless focus on customer success.</p>
+    <h2>Our Promise</h2>
+    <p>At VITUS, we are not just suppliers — we are partners in your success. Every product we offer and every recommendation we make is backed by research, industry knowledge, and a passion for excellence.</p>
+    <p>From a two-wheeler in the city to an industrial plant running 24/7, our solutions are designed to protect, enhance, and empower — because your performance is our priority.</p>
+
+    <h2>Contact Us</h2>
     <p><strong>Contact:</strong> 8550952303<br>
        <strong>Email:</strong> biomassenergies@gmail.com
     </p>
 </section>
 
 <div class="footer">
-    <img src="images/vitusonly.png" alt="VITUS Logo" style="height:28px;vertical-align:middle;margin-right:8px;border-radius:5px;">
+    <img src="images/vitusonly.png" alt="VITUS Logo" style="height:28px;vertical-align:middle;margin-right:8px;border-radius:0px;">
     &copy; 2025 VITUS Oils Solutions | All Rights Reserved
 </div>
 
